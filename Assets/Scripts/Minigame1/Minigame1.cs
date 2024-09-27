@@ -11,6 +11,7 @@ namespace SimpleExampleGame {
 
         [SerializeField] private PlayerBoat[] m_Players;
         [SerializeField] private List<Enemy> m_Enemies;
+        [SerializeField] public Paths[] m_Paths;
         private List<Bullet> m_Bullets;
         private List<Trash> m_Trash;
         private int[] m_Scores;
@@ -100,6 +101,11 @@ namespace SimpleExampleGame {
                 m_Enemies[i].GetTrash = GetTrash;
                 m_Enemies[i].m_ScreenID = i;
             }
+
+            /*for (int i = 0; i < m_Paths.Length; i++) 
+            {
+                m_Paths[i]
+            }*/
         }
 
         Bullet GetBullet()
