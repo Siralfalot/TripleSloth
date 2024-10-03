@@ -18,6 +18,7 @@ TagManager:
   - Cleanup
   - MissedTrigger
   - MinigameManager
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -36,8 +37,8 @@ TagManager:
   - PipeGroup3
   - PipeGroup4
   - Whale Body
-  - 
-  - 
+  - LeadFish
+  - UnitFish
   - 
   - 
   - 
