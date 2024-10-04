@@ -16,6 +16,8 @@ namespace SimpleExampleGame {
         private List<Trash> m_Trash;
         private int[] m_Scores;
 
+        public float gameSpeed = 2.0f;
+
         private void Awake()
         {
             MinigameLoaded.AddListener(InitialiseGame);
