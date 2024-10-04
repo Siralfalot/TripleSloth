@@ -19,6 +19,7 @@ TagManager:
   - MissedTrigger
   - MinigameManager
   - Wall
+  - BottomWall
   layers:
   - Default
   - TransparentFX
@@ -39,7 +40,7 @@ TagManager:
   - Whale Body
   - LeadFish
   - UnitFish
-  - 
+  - BackgroundTeleport
   - 
   - 
   - 
