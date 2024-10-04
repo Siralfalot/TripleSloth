@@ -19,11 +19,13 @@ public class FishSchoolUnit : MonoBehaviour
         //rb = GetComponent<Rigidbody2D>();
 
         //Flip sprite to face downwards if fish stays in position
-        if (!moveTowardsPosition)
-        {
-            //rb.MoveRotation(180);
-            transform.rotation = Quaternion.Euler(0, 0, 180);
-        }
+        //if (!moveTowardsPosition)
+        //{
+        //    //rb.MoveRotation(180);
+        //    transform.rotation = Quaternion.Euler(0, 0, 180);
+        //}
+
+        transform.rotation = Quaternion.Euler(0, 0, 180);
 
         initialOffset = transform.localPosition;
     }
