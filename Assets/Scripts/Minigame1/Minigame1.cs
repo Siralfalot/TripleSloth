@@ -6,14 +6,16 @@ namespace SimpleExampleGame {
     public class Minigame1 : MinigameBase
     {
         [Header("Game Specific variables")]
-        public Bullet pf_Bullet;
-        public Trash pf_Trash;
+        //public Bullet pf_Bullet;
+        //public Trash pf_Trash;
+        public Rock pf_Rock;
 
         [SerializeField] private PlayerBoat[] m_Players;
-        [SerializeField] private List<Enemy> m_Enemies;
+        [SerializeField] private List<Spawner> m_Spawner;
         [SerializeField] public Paths[] m_Paths;
-        private List<Bullet> m_Bullets;
-        private List<Trash> m_Trash;
+        
+        private List<Rock> m_Rock;
+        
         private int[] m_Scores;
 
         public float gameSpeed = 2.0f;
@@ -74,34 +76,34 @@ namespace SimpleExampleGame {
 
 
             //Build pool of bullets
-            m_Bullets = new List<Bullet>();
+            /*m_Bullets = new List<Bullet>();
             Bullet b;
             for (int i =0; i < 50; i++)
             {
                 b = Instantiate<Bullet>(pf_Bullet);
                 b.gameObject.SetActive(false);
                 m_Bullets.Add(b);
-            }
+            }*/
 
-            //Build pool of trash
-            m_Trash = new List<Trash>();
-            Trash trash;
+            //Build pool of rocks
+            m_Rock = new List<Rock>();
+            Rock rock;
             for (int i = 0; i < 10; i++)
             {
-                trash = Instantiate<Trash>(pf_Trash);
-                trash.gameObject.SetActive(false);
-                m_Trash.Add(trash);
+                rock = Instantiate<Rock>(pf_Rock);
+                rock.gameObject.SetActive(false);
+                m_Rock.Add(rock);
             }
 
-            for (int i = 0; i < m_Players.Length; i++)
+            /*for (int i = 0; i < m_Players.Length; i++)
             {
                 m_Players[i].GetBullet = GetBullet;
                 m_Players[i].m_ScreenID = i;
-            }
-            for (int i = 0; i < m_Enemies.Count; i++)
+            }*/
+            for (int i = 0; i < m_Spawner.Count; i++)
             {
-                m_Enemies[i].GetTrash = GetTrash;
-                m_Enemies[i].m_ScreenID = i;
+                m_Spawner[i].GetRock = GetRock;
+                m_Spawner[i].m_ScreenID = i;
             }
 
             /*for (int i = 0; i < m_Paths.Length; i++) 
@@ -110,7 +112,7 @@ namespace SimpleExampleGame {
             }*/
         }
 
-        Bullet GetBullet()
+        /*Bullet GetBullet()
         {
             Bullet returnBullet = null;
             for (int i = 0; i < m_Bullets.Count; i++)
@@ -120,37 +122,33 @@ namespace SimpleExampleGame {
                 returnBullet = m_Bullets[i];
             }
             return returnBullet;
-        }
-        Trash GetTrash()
+        }*/
+
+        Rock GetRock()
         {
-            Trash returnTrash = null;
-            for (int i = 0; i < m_Trash.Count; i++)
+            Rock returnRock = null;
+            for (int i = 0; i < m_Rock.Count; i++)
             {
-                if (m_Trash[i].gameObject.activeSelf)
+                if (m_Rock[i].gameObject.activeSelf)
                     continue;
-                returnTrash = m_Trash[i];
+                returnRock = m_Rock[i];
             }
-            return returnTrash;
+            return returnRock;
         }
 
         private void FixedUpdate()
         {
-            foreach (Trash t in m_Trash)
+            foreach (Rock r in m_Rock)
             {
-                if (!t.gameObject.activeSelf)
+                if (!r.gameObject.activeSelf)
                     continue;
-                foreach (Bullet b in m_Bullets)
+                if (Vector3.SqrMagnitude(m_Players[r.m_ScreenID].transform.position - r.transform.position) < 0.25f)
                 {
-                    if (!b.gameObject.activeSelf)
-                        continue;
-                    if(Vector3.SqrMagnitude(b.transform.position - t.transform.position) < 0.25f)
-                    {
-                        m_Scores[t.m_ScreenID]++;
-                        b.gameObject.SetActive(false);
-                        t.gameObject.SetActive(false);
-                        break;
-                    }
+                    m_Scores[r.m_ScreenID]--;
+                    r.gameObject.SetActive(false);
+                    break;
                 }
+                
             }
         }
     }

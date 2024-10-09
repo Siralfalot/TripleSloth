@@ -204,6 +204,8 @@ public class MinigameManager : MonoBehaviour
     /// </summary>
     public void PlayTutorial()
     {
+        Debug.Log("Play Tutorial");
+
         currentMinigame.PlayTutorial(MinigameStart);
     }
 

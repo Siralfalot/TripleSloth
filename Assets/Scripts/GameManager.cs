@@ -473,6 +473,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("TEST");
+
             minigameManager.MinigameStart();
         }
     }
