@@ -9,6 +9,7 @@ public class FishSchoolManager : MonoBehaviour
     public int unitAmount = 25;
     public Vector3 offsetRange = new Vector3(0.9f, 1f, 1f);
     public float offsetBehindLeadFish = 0f;
+    public int screenID;
 
 
     void Awake()
@@ -26,7 +27,13 @@ public class FishSchoolManager : MonoBehaviour
             Vector3 unitOffset = new Vector3(Random.Range(-offsetRange.x, offsetRange.x), Random.Range(-offsetRange.y, offsetRange.y) - offsetBehindLeadFish, 0);
 
             units[i] = Instantiate(unitPrefab, this.transform.position + unitOffset, Quaternion.identity, this.transform) as GameObject;
-            units[i].GetComponent<FishSchoolUnit>().manager = this.gameObject;
+
+            //units[i].GetComponent<FishSchoolUnit>().manager = this.gameObject;
+
+            FishSchoolUnit unitComponent = units[i].GetComponent<FishSchoolUnit>();
+            unitComponent.manager = this.gameObject;
+
+            unitComponent.screenID = screenID;
         }
     }
 

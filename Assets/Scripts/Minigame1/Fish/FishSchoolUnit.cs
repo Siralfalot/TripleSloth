@@ -11,6 +11,12 @@ public class FishSchoolUnit : MonoBehaviour
     public float spriteRotationSpeed = 1000f;
     public Vector3 initialOffset;
 
+    public bool leadIsCollected = false;
+    public int screenID;
+    public Vector2 whaleMouthPos;
+    public bool mouthReached;
+    public Animator whaleAnimator;
+
     //Rigidbody2D rb;
     Vector2 moveDir;
 
@@ -33,7 +39,7 @@ public class FishSchoolUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moveTowardsPosition)
+        if (moveTowardsPosition && !leadIsCollected)
         {
             Vector3 offsetPosition = transform.parent.position + initialOffset;
 
@@ -44,6 +50,26 @@ public class FishSchoolUnit : MonoBehaviour
             //transform.position += (Vector3)(moveDir * moveSpeed * Time.deltaTime);
 
             transform.position = Vector3.Lerp(transform.position, offsetPosition, moveSpeed * Time.deltaTime);
+        }
+
+        if (leadIsCollected && !mouthReached)
+        {
+            moveTowardsPosition = false;
+            transform.position = Vector3.Lerp(transform.position, whaleMouthPos, moveSpeed * Time.deltaTime);
+
+            float distanceToMouth = Vector3.Distance(transform.position, whaleMouthPos);
+
+            if (distanceToMouth < 0.1f)
+            {
+                mouthReached = true;
+            }
+        }
+
+        if(mouthReached)
+        {
+            whaleAnimator.ResetTrigger("WhaleCollectTrigger");
+            whaleAnimator.SetTrigger("WhaleCollectTrigger");
+            Destroy(this.gameObject);
         }
 
         if(spriteRotation)

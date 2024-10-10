@@ -139,6 +139,10 @@ MonoBehaviour:
   moveSpeed: 10
   spriteRotationSpeed: 1000
   initialOffset: {x: 0, y: 0, z: 0}
+  leadIsCollected: 0
+  screenID: 0
+  whaleMouthPos: {x: 0, y: 0}
+  mouthReached: 0
 --- !u!61 &507611753933211366
 BoxCollider2D:
   m_ObjectHideFlags: 0
