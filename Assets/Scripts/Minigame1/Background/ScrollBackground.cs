@@ -30,7 +30,7 @@ public class ScrollBackground : MonoBehaviour
         
         spriteLength = sprite.bounds.size.y;
         scrollDirection = Vector2.down.normalized;
-        spriteLengthOffset = new Vector3(0, spriteLength, 0);
+        spriteLengthOffset = new Vector3(0, spriteLength - 5f, 0);
 
         //Vector3 duplicatePos = this.transform.position + spriteLengthOffset;
         //if (!duplicateCreated)
