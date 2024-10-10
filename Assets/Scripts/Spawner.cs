@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
     public System.Func<Rock> GetRock;
     public System.Func<FishSpawn> GetFish;
 
-    public float m_TimeBetweenSpawns = 4f;
+    public float m_TimeBetweenSpawns = 2f;
     public int m_ScreenID = -1;
     public Paths m_path;
 
@@ -22,14 +22,15 @@ public class Spawner : MonoBehaviour
     public int randomRockNumber;
     public int randomFishNumber;
 
-    private float m_NextSpawn = 4f;
+    private float m_NextRockSpawn = 2f;
+    private float m_NextFishSpawn = 2f;
     private Vector3 m_InitialPosition = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
     {
         m_InitialPosition = transform.position;
-        m_NextSpawn = Time.time + m_TimeBetweenSpawns;
+        m_NextRockSpawn = Time.time + m_TimeBetweenSpawns;
 
         leftSpawn = new Vector3(m_path.pathPositions[0], transform.position.y, transform.position.z);
         centerSpawn = new Vector3(m_path.pathPositions[1], transform.position.y, transform.position.z);
@@ -39,11 +40,15 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > m_NextSpawn)
+        if (Time.time > m_NextRockSpawn)
         {
             LaunchRock();
+            
+            
+        }
+        if(Time.time > m_NextFishSpawn)
+        {
             LaunchFish();
-            m_NextSpawn = Time.time + m_TimeBetweenSpawns;
         }
     }
 
@@ -72,12 +77,12 @@ public class Spawner : MonoBehaviour
                 rock.Launch(rightSpawn, m_ScreenID);
                 spawnedRight = true;
             }
-            
+            m_NextRockSpawn = Time.time + m_TimeBetweenSpawns;
         }
         else
         {
-            //We didn't get a trash. Wait half a second before trying again.
-            m_NextSpawn = Time.time + 0.5f;
+            //We didn't get a rock. Wait half a second before trying again.
+            m_NextRockSpawn = Time.time + 0.5f;
         }
     }
 
@@ -140,6 +145,7 @@ public class Spawner : MonoBehaviour
                     fish.Launch(centerSpawn, m_ScreenID);
                 }
             }
+            m_NextFishSpawn = Time.time + m_TimeBetweenSpawns;
         }
     }
 }

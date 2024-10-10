@@ -91,7 +91,7 @@ namespace SimpleExampleGame {
             //Build pool of rocks
             m_Rock = new List<Rock>();
             Rock rock;
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 20; i++)
             {
                 rock = Instantiate<Rock>(pf_Rock);
                 rock.gameObject.SetActive(false);
@@ -100,7 +100,7 @@ namespace SimpleExampleGame {
 
             m_Fish = new List<FishSpawn>();
             FishSpawn fish;
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 20; i++)
             {
                 fish = Instantiate<FishSpawn>(pf_Fish);
                 fish.gameObject.SetActive(false);
