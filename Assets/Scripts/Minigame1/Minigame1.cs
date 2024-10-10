@@ -9,12 +9,15 @@ namespace SimpleExampleGame {
         //public Bullet pf_Bullet;
         //public Trash pf_Trash;
         public Rock pf_Rock;
+        public FishSpawn pf_Fish;
+        
 
         [SerializeField] private PlayerBoat[] m_Players;
         [SerializeField] private List<Spawner> m_Spawner;
         [SerializeField] public Paths[] m_Paths;
         
         private List<Rock> m_Rock;
+        private List<FishSpawn> m_Fish;
         
         private int[] m_Scores;
 
@@ -88,11 +91,20 @@ namespace SimpleExampleGame {
             //Build pool of rocks
             m_Rock = new List<Rock>();
             Rock rock;
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 40; i++)
             {
                 rock = Instantiate<Rock>(pf_Rock);
                 rock.gameObject.SetActive(false);
                 m_Rock.Add(rock);
+            }
+
+            m_Fish = new List<FishSpawn>();
+            FishSpawn fish;
+            for (int i = 0; i < 40; i++)
+            {
+                fish = Instantiate<FishSpawn>(pf_Fish);
+                fish.gameObject.SetActive(false);
+                m_Fish.Add(fish);
             }
 
             /*for (int i = 0; i < m_Players.Length; i++)
@@ -103,6 +115,7 @@ namespace SimpleExampleGame {
             for (int i = 0; i < m_Spawner.Count; i++)
             {
                 m_Spawner[i].GetRock = GetRock;
+                m_Spawner[i].GetFish = GetFish;
                 m_Spawner[i].m_ScreenID = i;
             }
 
@@ -136,6 +149,18 @@ namespace SimpleExampleGame {
             return returnRock;
         }
 
+        FishSpawn GetFish()
+        {
+            FishSpawn returnFish = null;
+            for (int i = 0; i < m_Fish.Count; i++)
+            {
+                if (m_Fish[i].gameObject.activeSelf)
+                    continue;
+                returnFish = m_Fish[i];
+            }
+            return returnFish;
+        }
+
         private void FixedUpdate()
         {
             foreach (Rock r in m_Rock)
@@ -149,6 +174,22 @@ namespace SimpleExampleGame {
                     break;
                 }
                 
+            }
+            foreach (FishSpawn f in m_Fish)
+            {
+                if (!f.gameObject.activeSelf)
+                    continue;
+                if (Vector3.SqrMagnitude(m_Players[f.m_ScreenID].transform.position -  f.transform.position) < 0.25f)
+                {
+                    int i = 0;
+                    while(i < 4)
+                    {
+                        m_Scores[f.m_ScreenID]++;
+                        i++;
+                    }
+                    f.gameObject.SetActive(false);
+                    break;
+                }
             }
         }
     }
