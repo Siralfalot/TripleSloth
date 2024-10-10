@@ -21,6 +21,7 @@ public class FishMove : MonoBehaviour
     public Vector2 whaleMouthPos;
     public FishSchoolUnit[] fishUnit;
     public Animator whaleAnimator;
+    private bool fishChildrenGet = false;
 
     //public bool sideSwaying = true;
     //public float swaySpeed = .1f;
@@ -30,8 +31,6 @@ public class FishMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         fishCollider = GetComponent<Collider2D>();
-
-        fishUnit = GetComponentsInChildren<FishSchoolUnit>();
 
         //Can add random ranges instead
         if (moveHorizontal)
@@ -54,6 +53,12 @@ public class FishMove : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if(!fishChildrenGet)
+        {
+            StartCoroutine("GetFishInChildren");
+        }
+
         if (!isCollected)
         {
             rb.velocity = direction * moveSpeed;
@@ -151,6 +156,14 @@ public class FishMove : MonoBehaviour
         }
 
         moveToMouth = true;
+    }
+
+    private IEnumerator GetFishInChildren()
+    {
+        yield return new WaitForSeconds(0.5f);
+        fishUnit = GetComponentsInChildren<FishSchoolUnit>();
+        Debug.Log("FishChildren found!");
+        fishChildrenGet = true;
     }
 
     //Doesn't work, should be done with shaders or on sprite renderer directly anyways
