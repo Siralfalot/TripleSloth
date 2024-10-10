@@ -50,7 +50,13 @@ public class WinScreen : MonoBehaviour
         }
         teamTime = scoreData.TeamTime;
         gameObject.SetActive(true);
-        StartCoroutine(TempWaitAWhile(3.0f, completionCallback));
+        for (int i = 0; i < m_PlayerScreens.Length; i++)
+        {
+            m_PlayerScreens[i].countUp(scoreData);
+        }
+
+       
+        StartCoroutine(TempWaitAWhile(5.0f, completionCallback));
     }
 
     private IEnumerator TempWaitAWhile(float t, System.Action callback)

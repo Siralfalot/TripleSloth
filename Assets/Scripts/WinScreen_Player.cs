@@ -43,11 +43,6 @@ public class WinScreen_Player : MonoBehaviour
     {
         int[] scoreOrder = { 0, 0, 0, 0 };
 
-        gsd.PlayerScores[0] = 15;
-        gsd.PlayerScores[1] = 31;
-        gsd.PlayerScores[2] = 7;
-        gsd.PlayerScores[3] = 12;
-
         for (int i = 0; i < 4; i++)
         {
             scoreOrder[i] = gsd.PlayerScores[i];
@@ -91,10 +86,48 @@ public class WinScreen_Player : MonoBehaviour
 
     public void changePlayerScores(int[] scoreOrder)
     {
+        int totalScore = 0;
+
         for (int i = 0; i < 4; i++)
         {
-            m_ScoreText[i].text = scoreOrder[i].ToString();            
+            m_ScoreText[i].text = scoreOrder[i].ToString();
+
+            totalScore += scoreOrder[i];
+        }        
+    }
+
+    public void countUp(GameScoreData gsd)
+    {
+        if (this.isActiveAndEnabled)
+        {
+            StartCoroutine(countUpTeamScore(gsd));
         }
+    }
+
+    IEnumerator countUpTeamScore(GameScoreData gsd)
+    {
+        int totalScore = 0;
+
+        for (int i = 0; i < 4;i++)
+        {
+            totalScore = totalScore + gsd.PlayerScores[i];
+        }
+
+        if (this.isActiveAndEnabled)
+        {
+            for (int i = 0; i < totalScore + 1; i++)
+            {
+                yield return new WaitForSeconds(0.01f);
+
+                m_TeamTimeText.text = i.ToString();
+            }
+        }
+        else
+        {
+            Debug.Log("SceneNotActive");
+        }
+
+        
     }
 
 }
