@@ -1,0 +1,514 @@
+fileFormatVersion: 2
+guid: efb72a6af6ff41a4c8999c25f6f1ac3e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7070810827583320690
+    second: scrollBG_transparent_bright_0
+  - first:
+      213: 3745723055771446886
+    second: scrollBG_transparent_bright_1
+  - first:
+      213: -6187706716592457902
+    second: scrollBG_transparent_bright_2
+  - first:
+      213: 1849244734441204383
+    second: scrollBG_transparent_bright_3
+  - first:
+      213: -8677871436455088733
+    second: scrollBG_transparent_bright_4
+  - first:
+      213: -7015240002418322767
+    second: scrollBG_transparent_bright_5
+  - first:
+      213: 4726444800036649865
+    second: scrollBG_transparent_bright_6
+  - first:
+      213: 5559844634295591095
+    second: scrollBG_transparent_bright_7
+  - first:
+      213: 7421535937311378957
+    second: scrollBG_transparent_bright_8
+  - first:
+      213: -2210907241938456209
+    second: scrollBG_transparent_bright_9
+  - first:
+      213: 2251814659084964337
+    second: scrollBG_transparent_bright_10
+  - first:
+      213: 5913125392322807678
+    second: scrollBG_transparent_bright_11
+  - first:
+      213: -4707653339142701036
+    second: scrollBG_transparent_bright_12
+  - first:
+      213: -6107443680637564643
+    second: scrollBG_transparent_bright_13
+  - first:
+      213: 6870791155069783015
+    second: scrollBG_transparent_bright_14
+  - first:
+      213: -2981353023379131609
+    second: scrollBG_transparent_bright_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_0
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 1426
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8d09ebd30f6fdd90800000000000000
+      internalID: -7070810827583320690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_1
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 1486
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e6f36064b7bf330800000000000000
+      internalID: 3745723055771446886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_2
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 1348
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 257353f6689d02aa0800000000000000
+      internalID: -6187706716592457902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_3
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1221
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a212bc946d9a910800000000000000
+      internalID: 1849244734441204383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_4
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 1025
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ade597e7e1029780800000000000000
+      internalID: -8677871436455088733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_5
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1006
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2deb9d26cd4ae90800000000000000
+      internalID: -7015240002418322767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_6
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 847
+        width: 56
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b3dacf084b79140800000000000000
+      internalID: 4726444800036649865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_7
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 887
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b0ec81dc39882d40800000000000000
+      internalID: 5559844634295591095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_8
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 647
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0e8d3f2d979ef660800000000000000
+      internalID: 7421535937311378957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_9
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 683
+        width: 80
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f617becc3974151e0800000000000000
+      internalID: -2210907241938456209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_10
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 457
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f1d6c6708d004f10800000000000000
+      internalID: 2251814659084964337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_11
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 411
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e774eb91734af0250800000000000000
+      internalID: 5913125392322807678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_12
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 345
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 410c7b2fa3e0baeb0800000000000000
+      internalID: -4707653339142701036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_13
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 172
+        width: 69
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d19c4e1c4500e3ba0800000000000000
+      internalID: -6107443680637564643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_14
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 90
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eb84db0724f95f50800000000000000
+      internalID: 6870791155069783015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrollBG_transparent_bright_15
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 36
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 723337b983b10a6d0800000000000000
+      internalID: -2981353023379131609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      scrollBG_transparent_bright_0: -7070810827583320690
+      scrollBG_transparent_bright_1: 3745723055771446886
+      scrollBG_transparent_bright_10: 2251814659084964337
+      scrollBG_transparent_bright_11: 5913125392322807678
+      scrollBG_transparent_bright_12: -4707653339142701036
+      scrollBG_transparent_bright_13: -6107443680637564643
+      scrollBG_transparent_bright_14: 6870791155069783015
+      scrollBG_transparent_bright_15: -2981353023379131609
+      scrollBG_transparent_bright_2: -6187706716592457902
+      scrollBG_transparent_bright_3: 1849244734441204383
+      scrollBG_transparent_bright_4: -8677871436455088733
+      scrollBG_transparent_bright_5: -7015240002418322767
+      scrollBG_transparent_bright_6: 4726444800036649865
+      scrollBG_transparent_bright_7: 5559844634295591095
+      scrollBG_transparent_bright_8: 7421535937311378957
+      scrollBG_transparent_bright_9: -2210907241938456209
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

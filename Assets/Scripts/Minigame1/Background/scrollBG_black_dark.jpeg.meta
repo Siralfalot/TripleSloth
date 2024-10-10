@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      scrollBG_black_dark_0: -7620569927643439422
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

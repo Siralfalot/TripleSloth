@@ -84,15 +84,17 @@ public class PlayerBoat : MonoBehaviour
         //transform.position += (Vector3)moveDirection * FishSpeed * Time.deltaTime; // Time.deltaTime makes our movement consistent regardless of framerate
         transform.position = ScreenUtility.ClampToScreen(transform.position, m_ScreenID, 0.5f);
 
-        if (Input.GetKeyDown(KeyCode.B) && !isDamaged)
-        {
-            StartCoroutine(DamageTest());
-        }
+        //Just for animation testing
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            CollectAnimTest();
-        }
+        //if (Input.GetKeyDown(KeyCode.B) && !isDamaged)
+        //{
+        //    StartCoroutine(DamageTest());
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    CollectAnimTest();
+        //}
     }
 
     private IEnumerator DoMovement()
