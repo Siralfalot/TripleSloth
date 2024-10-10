@@ -32,10 +32,15 @@ public class PlayerBoat : MonoBehaviour
     private bool isMoving = false;
 
     private float duration = 0.25f;
-    
+
+
+    public Animator animator;
+    public bool isDamaged = false;
+    public float damageTime = 2f;
+
 
     //private IEnumerator coroutine;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +48,7 @@ public class PlayerBoat : MonoBehaviour
         targetPosition = 1;
 
         minigame = GetComponent<Minigame1>();
-
+        animator = GetComponent<Animator>();
         
     }
 
@@ -78,6 +83,16 @@ public class PlayerBoat : MonoBehaviour
 
         //transform.position += (Vector3)moveDirection * FishSpeed * Time.deltaTime; // Time.deltaTime makes our movement consistent regardless of framerate
         transform.position = ScreenUtility.ClampToScreen(transform.position, m_ScreenID, 0.5f);
+
+        if (Input.GetKeyDown(KeyCode.B) && !isDamaged)
+        {
+            StartCoroutine(DamageTest());
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            CollectAnimTest();
+        }
     }
 
     private IEnumerator DoMovement()
@@ -142,5 +157,23 @@ public class PlayerBoat : MonoBehaviour
                 bullet.Fire(transform.position);
             }
         }
+    }
+
+    private IEnumerator DamageTest()
+    {
+        isDamaged = true;
+
+        animator.SetBool("IsDamage", true);
+
+        yield return new WaitForSeconds(damageTime);
+
+        animator.SetBool("IsDamage", false);
+
+        isDamaged = false;
+    }
+
+    private void CollectAnimTest()
+    {
+        animator.SetTrigger("WhaleCollectTrigger");
     }
 }
