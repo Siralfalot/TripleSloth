@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fish Glyph_0: 6379914765253887668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -46,7 +46,7 @@ public class WinScreen : MonoBehaviour
         minigameRef = minigame;
         for (int i = 0; i < m_PlayerScreens.Length; i++)
         {
-            m_PlayerScreens[i].ShowWinScreen(scoreData.ScoreIcon, scoreData, i);
+            m_PlayerScreens[i].ShowWinScreen(scoreData, i);
         }
         teamTime = scoreData.TeamTime;
         gameObject.SetActive(true);
