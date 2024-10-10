@@ -10,6 +10,7 @@ public class ScrollBackground : MonoBehaviour
     public bool canScrollBackground = true;
     public bool isOriginal = false;
     public GameObject backgroundPrefab;
+    public float offsetAdjustAmount = 5f;
 
     SpriteRenderer sprite;
     //GameObject duplicateBG;
@@ -30,7 +31,7 @@ public class ScrollBackground : MonoBehaviour
         
         spriteLength = sprite.bounds.size.y;
         scrollDirection = Vector2.down.normalized;
-        spriteLengthOffset = new Vector3(0, spriteLength - 5f, 0);
+        spriteLengthOffset = new Vector3(0, spriteLength - offsetAdjustAmount, 0);
 
         //Vector3 duplicatePos = this.transform.position + spriteLengthOffset;
         //if (!duplicateCreated)
