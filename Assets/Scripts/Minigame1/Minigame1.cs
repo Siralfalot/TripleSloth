@@ -9,16 +9,20 @@ namespace SimpleExampleGame {
         //public Bullet pf_Bullet;
         //public Trash pf_Trash;
         public Rock pf_Rock;
-        public FishSpawn pf_Fish;
-        
+        public FishSpawn pf_SmallFishSchool;
+        public FishSpawn pf_MediumFishSchool;
+        public FishSpawn pf_LargeFishSchool;
+
 
         [SerializeField] private PlayerBoat[] m_Players;
         [SerializeField] private List<Spawner> m_Spawner;
         [SerializeField] public Paths[] m_Paths;
         
         private List<Rock> m_Rock;
-        private List<FishSpawn> m_Fish;
-        
+        private List<FishSpawn> m_SmallFish;
+        private List<FishSpawn> m_MediumFish;
+        private List<FishSpawn> m_LargeFish;
+
         private int[] m_Scores;
 
         public float gameSpeed = 2.0f;
@@ -91,20 +95,38 @@ namespace SimpleExampleGame {
             //Build pool of rocks
             m_Rock = new List<Rock>();
             Rock rock;
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 100; i++)
             {
                 rock = Instantiate<Rock>(pf_Rock);
                 rock.gameObject.SetActive(false);
                 m_Rock.Add(rock);
             }
 
-            m_Fish = new List<FishSpawn>();
-            FishSpawn fish;
-            for (int i = 0; i < 20; i++)
+            m_SmallFish = new List<FishSpawn>();
+            FishSpawn smallFish;
+            for (int i = 0; i < 100; i++)
             {
-                fish = Instantiate<FishSpawn>(pf_Fish);
-                fish.gameObject.SetActive(false);
-                m_Fish.Add(fish);
+                smallFish = Instantiate<FishSpawn>(pf_SmallFishSchool);
+                smallFish.gameObject.SetActive(false);
+                m_SmallFish.Add(smallFish);
+            }
+
+            m_MediumFish = new List<FishSpawn>();
+            FishSpawn mediumFish;
+            for (int i = 0; i < 100; i++)
+            {
+                mediumFish = Instantiate<FishSpawn>(pf_MediumFishSchool);
+                mediumFish.gameObject.SetActive(false);
+                m_MediumFish.Add(mediumFish);
+            }
+
+            m_LargeFish = new List<FishSpawn>();
+            FishSpawn largeFish;
+            for (int i = 0; i < 100; i++)
+            {
+                largeFish = Instantiate<FishSpawn>(pf_LargeFishSchool);
+                largeFish.gameObject.SetActive(false);
+                m_LargeFish.Add(largeFish);
             }
 
             /*for (int i = 0; i < m_Players.Length; i++)
@@ -115,7 +137,9 @@ namespace SimpleExampleGame {
             for (int i = 0; i < m_Spawner.Count; i++)
             {
                 m_Spawner[i].GetRock = GetRock;
-                m_Spawner[i].GetFish = GetFish;
+                m_Spawner[i].GetSFish = GetSFish;
+                m_Spawner[i].GetMFish = GetMFish;
+                m_Spawner[i].GetLFish = GetLFish;
                 m_Spawner[i].m_ScreenID = i;
             }
 
@@ -149,14 +173,38 @@ namespace SimpleExampleGame {
             return returnRock;
         }
 
-        FishSpawn GetFish()
+        FishSpawn GetSFish()
         {
             FishSpawn returnFish = null;
-            for (int i = 0; i < m_Fish.Count; i++)
+            for (int i = 0; i < m_SmallFish.Count; i++)
             {
-                if (m_Fish[i].gameObject.activeSelf)
+                if (m_SmallFish[i].gameObject.activeSelf)
                     continue;
-                returnFish = m_Fish[i];
+                returnFish = m_SmallFish[i];
+            }
+            return returnFish;
+        }
+
+        FishSpawn GetMFish()
+        {
+            FishSpawn returnFish = null;
+            for (int i = 0; i < m_MediumFish.Count; i++)
+            {
+                if (m_MediumFish[i].gameObject.activeSelf)
+                    continue;
+                returnFish = m_MediumFish[i];
+            }
+            return returnFish;
+        }
+
+        FishSpawn GetLFish()
+        {
+            FishSpawn returnFish = null;
+            for (int i = 0; i < m_LargeFish.Count; i++)
+            {
+                if (m_LargeFish[i].gameObject.activeSelf)
+                    continue;
+                returnFish = m_LargeFish[i];
             }
             return returnFish;
         }
@@ -175,7 +223,7 @@ namespace SimpleExampleGame {
                 }
                 
             }
-            foreach (FishSpawn f in m_Fish)
+            foreach (FishSpawn f in m_SmallFish)
             {
                 if (!f.gameObject.activeSelf)
                     continue;
@@ -183,6 +231,38 @@ namespace SimpleExampleGame {
                 {
                     int i = 0;
                     while(i < 4)
+                    {
+                        m_Scores[f.m_ScreenID]++;
+                        i++;
+                    }
+                    f.gameObject.SetActive(false);
+                    break;
+                }
+            }
+            foreach (FishSpawn f in m_MediumFish)
+            {
+                if (!f.gameObject.activeSelf)
+                    continue;
+                if (Vector3.SqrMagnitude(m_Players[f.m_ScreenID].transform.position - f.transform.position) < 0.25f)
+                {
+                    int i = 0;
+                    while (i < 9)
+                    {
+                        m_Scores[f.m_ScreenID]++;
+                        i++;
+                    }
+                    f.gameObject.SetActive(false);
+                    break;
+                }
+            }
+            foreach (FishSpawn f in m_LargeFish)
+            {
+                if (!f.gameObject.activeSelf)
+                    continue;
+                if (Vector3.SqrMagnitude(m_Players[f.m_ScreenID].transform.position - f.transform.position) < 0.25f)
+                {
+                    int i = 0;
+                    while (i < 14)
                     {
                         m_Scores[f.m_ScreenID]++;
                         i++;
