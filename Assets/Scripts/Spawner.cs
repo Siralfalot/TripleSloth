@@ -5,9 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public System.Func<Rock> GetRock;
-    public System.Func<FishSpawn> GetSFish;
-    public System.Func<FishSpawn> GetMFish;
-    public System.Func<FishSpawn> GetLFish;
+    public System.Func<FishSpawn> GetFish;
 
     public float m_TimeBetweenSpawns = 2f;
     public int m_ScreenID = -1;
@@ -23,7 +21,6 @@ public class Spawner : MonoBehaviour
 
     public int randomRockNumber;
     public int randomFishNumber;
-    public int randomFishTypeNumber;
 
     private float m_NextRockSpawn = 2f;
     private float m_NextFishSpawn = 2f;
@@ -91,189 +88,61 @@ public class Spawner : MonoBehaviour
 
     void LaunchFish()
     {
-        randomFishTypeNumber = Random.Range(0, 3);
-        if (randomFishTypeNumber == 0)
+        FishSpawn fish = GetFish();
+        if (fish != null)
         {
-            FishSpawn fish = GetSFish();
-            if (fish != null)
+            randomFishNumber = Random.Range(0, 3);
+            if(randomFishNumber == 0)
             {
-                randomFishNumber = Random.Range(0, 3);
-                if (randomFishNumber == 0)
+                if (spawnedLeft)
                 {
-                    if (spawnedLeft)
-                    {
-                        int randomBackup = Random.Range(1, 3);
-                        if (randomBackup == 1)
-                        {
-                            fish.Launch(centerSpawn, m_ScreenID);
-                        }
-                    }
-                    else
-                    {
-                        fish.Launch(leftSpawn, m_ScreenID);
-                    }
-                }
-                else if (randomFishNumber == 1)
-                {
-                    if (spawnedCenter)
-                    {
-                        int randomBackup = Random.Range(0, 3);
-                        while (randomBackup == 1)
-                        {
-                            randomBackup = Random.Range(0, 3);
-                        }
-                        if (randomBackup == 0)
-                        {
-                            fish.Launch(leftSpawn, m_ScreenID);
-                        }
-                        else if (randomBackup == 2)
-                        {
-                            fish.Launch(rightSpawn, m_ScreenID);
-                        }
-                    }
-                    else
+                    int randomBackup = Random.Range(1, 3);
+                    if(randomBackup == 1)
                     {
                         fish.Launch(centerSpawn, m_ScreenID);
                     }
                 }
-                else if (randomFishNumber == 2)
+                else
                 {
-                    if (spawnedRight)
-                    {
-                        int randomBackup = Random.Range(0, 2);
-                        if (randomBackup == 0)
-                        {
-                            fish.Launch(leftSpawn, m_ScreenID);
-                        }
-                    }
-                    else
-                    {
-                        fish.Launch(centerSpawn, m_ScreenID);
-                    }
+                    fish.Launch(leftSpawn, m_ScreenID);
                 }
             }
-            m_NextFishSpawn = Time.time + m_TimeBetweenSpawns;
-        }
-        else if(randomFishTypeNumber == 1)
-        {
-            FishSpawn fish = GetMFish();
-            if (fish != null)
+            else if(randomFishNumber == 1)
             {
-                randomFishNumber = Random.Range(0, 3);
-                if (randomFishNumber == 0)
+                if(spawnedCenter)
                 {
-                    if (spawnedLeft)
+                    int randomBackup = Random.Range(0, 3);
+                    while(randomBackup == 1)
                     {
-                        int randomBackup = Random.Range(1, 3);
-                        if (randomBackup == 1)
-                        {
-                            fish.Launch(centerSpawn, m_ScreenID);
-                        }
+                        randomBackup = Random.Range(0, 3);
                     }
-                    else
+                    if(randomBackup == 0)
                     {
                         fish.Launch(leftSpawn, m_ScreenID);
                     }
-                }
-                else if (randomFishNumber == 1)
-                {
-                    if (spawnedCenter)
+                    else if(randomBackup == 2)
                     {
-                        int randomBackup = Random.Range(0, 3);
-                        while (randomBackup == 1)
-                        {
-                            randomBackup = Random.Range(0, 3);
-                        }
-                        if (randomBackup == 0)
-                        {
-                            fish.Launch(leftSpawn, m_ScreenID);
-                        }
-                        else if (randomBackup == 2)
-                        {
-                            fish.Launch(rightSpawn, m_ScreenID);
-                        }
-                    }
-                    else
-                    {
-                        fish.Launch(centerSpawn, m_ScreenID);
+                        fish.Launch(rightSpawn,m_ScreenID);
                     }
                 }
-                else if (randomFishNumber == 2)
+                else
                 {
-                    if (spawnedRight)
-                    {
-                        int randomBackup = Random.Range(0, 2);
-                        if (randomBackup == 0)
-                        {
-                            fish.Launch(leftSpawn, m_ScreenID);
-                        }
-                    }
-                    else
-                    {
-                        fish.Launch(centerSpawn, m_ScreenID);
-                    }
+                    fish.Launch(centerSpawn, m_ScreenID);
                 }
             }
-            m_NextFishSpawn = Time.time + m_TimeBetweenSpawns;
-        }
-        else if(randomFishTypeNumber == 2)
-        {
-            FishSpawn fish = GetLFish();
-            if (fish != null)
+            else if(randomFishNumber == 2)
             {
-                randomFishNumber = Random.Range(0, 3);
-                if (randomFishNumber == 0)
+                if (spawnedRight)
                 {
-                    if (spawnedLeft)
-                    {
-                        int randomBackup = Random.Range(1, 3);
-                        if (randomBackup == 1)
-                        {
-                            fish.Launch(centerSpawn, m_ScreenID);
-                        }
-                    }
-                    else
+                    int randomBackup = Random.Range(0, 2);
+                    if (randomBackup == 0)
                     {
                         fish.Launch(leftSpawn, m_ScreenID);
                     }
                 }
-                else if (randomFishNumber == 1)
+                else
                 {
-                    if (spawnedCenter)
-                    {
-                        int randomBackup = Random.Range(0, 3);
-                        while (randomBackup == 1)
-                        {
-                            randomBackup = Random.Range(0, 3);
-                        }
-                        if (randomBackup == 0)
-                        {
-                            fish.Launch(leftSpawn, m_ScreenID);
-                        }
-                        else if (randomBackup == 2)
-                        {
-                            fish.Launch(rightSpawn, m_ScreenID);
-                        }
-                    }
-                    else
-                    {
-                        fish.Launch(centerSpawn, m_ScreenID);
-                    }
-                }
-                else if (randomFishNumber == 2)
-                {
-                    if (spawnedRight)
-                    {
-                        int randomBackup = Random.Range(0, 2);
-                        if (randomBackup == 0)
-                        {
-                            fish.Launch(leftSpawn, m_ScreenID);
-                        }
-                    }
-                    else
-                    {
-                        fish.Launch(centerSpawn, m_ScreenID);
-                    }
+                    fish.Launch(centerSpawn, m_ScreenID);
                 }
             }
             m_NextFishSpawn = Time.time + m_TimeBetweenSpawns;
