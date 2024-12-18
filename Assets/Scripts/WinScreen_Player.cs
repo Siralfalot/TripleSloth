@@ -43,6 +43,11 @@ public class WinScreen_Player : MonoBehaviour
     {
         int[] scoreOrder = { 0, 0, 0, 0 };
 
+        gsd.PlayerScores[0] = 11;
+        gsd.PlayerScores[1] = 17;
+        gsd.PlayerScores[2] = 23;
+        gsd.PlayerScores[3] = 9;
+
         for (int i = 0; i < 4; i++)
         {
             scoreOrder[i] = gsd.PlayerScores[i];

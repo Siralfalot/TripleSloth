@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FishSchoolUnit : MonoBehaviour
 {
@@ -69,7 +70,7 @@ public class FishSchoolUnit : MonoBehaviour
         {
             whaleAnimator.ResetTrigger("WhaleCollectTrigger");
             whaleAnimator.SetTrigger("WhaleCollectTrigger");
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
 
         if(spriteRotation)

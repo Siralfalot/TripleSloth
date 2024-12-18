@@ -80,7 +80,7 @@ public class FishMove : MonoBehaviour
         {
             whaleAnimator.ResetTrigger("WhaleCollectTrigger");
             whaleAnimator.SetTrigger("WhaleCollectTrigger");
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
 
         if(spriteRotation)
